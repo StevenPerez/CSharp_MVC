@@ -63,6 +63,7 @@ FinancialStatement fs =
                                      "A2321SDSS", "DOC265558", "T86", "P12A", "PK25", "2015-05-05", 
                                      "USD", 21.5, 30.5, 45.6, "2015-06-07", Environment.UserName, clsMethods.getID(), null);
 ```
+<br />
 #### Model - ( Read / Select )
 ```cs
 //                                            >> MODEL - MANUAL EXAMPLE <<
@@ -122,7 +123,7 @@ List<FinancialStatement> lstFS =
       fs.ShowWhere("ShortName = @ShortName", 
       new List<clsParam>() { new clsParam("@ShortName", Environment.UserName) });
 ```
-
+<br />
 #### Model - ( Update )
 ```cs
 //                                            >> MODEL - MANUAL EXAMPLE <<
@@ -180,7 +181,7 @@ FinancialStatement fs =
                            "USD", 21.5, 30.5, 45.6, "2015-06-07", Environment.UserName, "SPECIFICID", "Yes");
 fs.Update();
 ```
-
+<br />
 #### Model - ( Delete )
 ```cs
 //                                            >> MODEL - MANUAL EXAMPLE <<
@@ -209,4 +210,11 @@ FinancialStatement fs = new FinancialStatement();
 fs.ID = "SPECIFICID";
 fs.Delete();
 ```
+<br />
+## Controller
+A controller can send commands to the model to update the model's state (e.g., editing a document). It can also send commands to its associated view to change the view's presentation of the model (e.g., by scrolling through a document).
+<br />
+## View
+A view requests information from the model that it uses to generate an output representation to the user.
+<br />
 ##### Concepts Source: https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller
