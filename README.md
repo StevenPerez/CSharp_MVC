@@ -63,5 +63,63 @@ FinancialStatement fs =
                                      "A2321SDSS", "DOC265558", "T86", "P12A", "PK25", "2015-05-05", 
                                      "USD", 21.5, 30.5, 45.6, "2015-06-07", Environment.UserName, clsMethods.getID(), null);
 ```
+#### Model - ( Read / Select )
+```cs
+//                                            >> MODEL - MANUAL EXAMPLE <<
+// Imports
+using FIT.Methods;
 
+// Read / Select
+public List<FinancialStatement> select()
+        {
+            try
+            {
+                DataTable dtFS = sql.fillDataTable("SELECT * FROM tbl_FinancialStatement WHERE ShortName = @ShortName",
+                                                    new SqlParameter[] { new SqlParameter("@ShortName", Environment.UserName) });
+
+                List<FinancialStatement> lstFS = new List<FinancialStatement>();
+
+                foreach (DataRow drRow in dtFS.Rows)
+                {
+                    FinancialStatement clsFS = new FinancialStatement {
+                        Account = drRow["Account"].ToString(),
+                        CoCd = drRow["CoCd"].ToString(),
+                        ProfitCtr = drRow["ProfitCtr"].ToString(),
+                        Plnt = drRow["Plnt"].ToString(),
+                        Material = drRow["Material"].ToString(),
+                        Assignment = drRow["Assignment"].ToString(),
+                        DocumentNo = drRow["DocumentNo"].ToString(),
+                        Type = drRow["Type"].ToString(),
+                        Pe = drRow["Pe"].ToString(),
+                        PK = drRow["PK"].ToString(),
+                        PstngDate = drRow["PstngDate"].ToString(),
+                        Curr = drRow["Curr"].ToString(),
+                        Quantity = float.Parse(drRow["Quantity"].ToString()),
+                        AmountLC = float.Parse(drRow["AmountLC"].ToString()),
+                        AmountLC2 = float.Parse(drRow["AmountLC2"].ToString()),
+                        DocDate = drRow["DocDate"].ToString(),
+                        ShortName = drRow["ShortName"].ToString(),
+                        ID = drRow["ID"].ToString(),
+                        HasEntries = drRow["HasEntries"].ToString(),
+                    };
+
+                    lstFS.Add(clsFS);
+                }
+
+                return lstFS;
+            }
+            catch (Exception ex)
+            { throw ex; }
+        }
+
+//                                        >> MODEL - ACTIVE RECORD EXAMPLE <<
+// Imports
+using FIT.ActiveRecord;
+using Models;
+
+FinancialStatement fs = new FinancialStatement();
+List<FinancialStatement> lstFS =  
+      fs.ShowWhere("ShortName = @ShortName", 
+      new List<clsParam>() { new clsParam("@ShortName", Environment.UserName) });
+```
 ##### Concepts Source: https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller
