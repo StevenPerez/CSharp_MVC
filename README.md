@@ -52,12 +52,16 @@ public int insert(string Account, string CoCd, string ProfitCtr, string Plnt, st
 //                                        >> MODEL - ACTIVE RECORD EXAMPLE <<
 // Imports
 using FIT.ActiveRecord;
+using FIT.Methods;
 using Models;
 
 // Create / Insert
-FinancialStatement fs = new FinancialStatement();
-fs.insert("5698012A3A", "A26", "C516600232", "A2SD3", "M565ADASD", "A2321SDSS", "DOC265558", "T86", "P12A",
-          "PK25", "2015-05-05", "USD", 21.5, 30.5, 45.6, "2015-06-07", null);
+clsMethodsGlobal clsMethods = new clsMethodsGlobal();
+
+FinancialStatement fs = 
+              new FinancialStatement("5698012A3A", "A26", "C516600232", "A2SD3", "M565ADASD", 
+                                     "A2321SDSS", "DOC265558", "T86", "P12A", "PK25", "2015-05-05", 
+                                     "USD", 21.5, 30.5, 45.6, "2015-06-07", Environment.UserName, clsMethods.getID(), null);
 ```
 
 ##### Concepts Source: https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller
