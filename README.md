@@ -1,6 +1,3 @@
-# C# MVC Material
-This is the training material for the C# MVC Winform
-
 ## MVC Introduction
 The idea behind the Model-View-Controller architectural pattern is simple: we must have the following responsibilities clearly separated in our application:
 
