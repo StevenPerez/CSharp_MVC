@@ -1,8 +1,21 @@
 # C# MVC Winform Training Material
 This is the training material for the C# MVC Winform
 
+## MVC Introduction
+The idea behind the Model-View-Controller architectural pattern is simple: we must have the following responsibilities clearly separated in our application:
+
+<img src="https://s3.amazonaws.com/nettuts/613_mvc/components.jpg" />
+
 ## Model
 A model stores data that is retrieved to the controller and displayed in the view. Whenever there is a change to the data it is updated by the controller.
+
+It is the data and the rules applying to that data, which represent concepts that the application manages. In any software system, everything is modeled as data that we handle in a certain way. What is a user, a message or a book for an application? Only data that must be handled according to specific rules (date can not be in the future, e-mail must have a specific format, name cannot be more than x characters long, etc).
+
+<img src="https://s3.amazonaws.com/nettuts/613_mvc/ModelData.jpg" />
+
+The model gives the controller a data representation of whatever the user requested (a message, a list of books, a photo album, etc). This data model will be the same no matter how we may want to present it to the user, that's why we can choose any available view to render it.
+
+The model contains the most important part of our application logic, the logic that applies to the problem we are dealing with (a forum, a shop, a bank, etc). The controller contains a more internal-organizational logic for the application itself (more like housekeeping).
 
 #### Model - ( Create / Insert )
 ```cs
@@ -213,8 +226,17 @@ fs.Delete();
 <br />
 ## Controller
 A controller can send commands to the model to update the model's state (e.g., editing a document). It can also send commands to its associated view to change the view's presentation of the model (e.g., by scrolling through a document).
+
+It manages the user requests (received as HTTP GET or POST requests when the user clicks on GUI elements to perform actions). Its main function is to call and coordinate the necessary resources/objects needed to perform the user action. Usually the controller will call the appropriate model for the task and then selects the proper view.
+
 <br />
 ## View
-A view requests information from the model that it uses to generate an output representation to the user.
+The View provides different ways to present the data received from the model. They may be templates where that data is filled. There may be several different views and the controller has to decide which one to use.
+
+A web application is usually composed of a set of controllers, models and views. The controller may be structured as a main controller that receives all requests and calls specific controllers that handles actions for each case.
 <br />
-##### Concepts Source: https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller
+<br />
+<br />
+###### <i>MVC Concepts' Source</i>
+http://code.tutsplus.com/tutorials/mvc-for-noobs--net-10488
+https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller
