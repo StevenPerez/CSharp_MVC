@@ -311,6 +311,8 @@ FinancialStatement fs =
               new FinancialStatement("5698012A3A", "A26", "C516600232", "A2SD3", "M565ADASD", 
                                      "A2321SDSS", "DOC265558", "T86", "P12A", "PK25", "2015-05-05", 
                                      "USD", 21.5, 30.5, 45.6, "2015-06-07", Environment.UserName, clsMethods.getID(), null);
+
+fs.Insert();
 ```
 <br />
 #### Model - ( Read / Select )
@@ -368,6 +370,7 @@ using FIT.ActiveRecord;
 using Models;
 
 FinancialStatement fs = new FinancialStatement();
+
 List<FinancialStatement> lstFS =  
       fs.ShowWhere("ShortName = @ShortName", 
       new List<clsParam>() { new clsParam("@ShortName", Environment.UserName) });
