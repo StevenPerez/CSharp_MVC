@@ -3,6 +3,20 @@ The idea behind the Model-View-Controller architectural pattern is simple: we mu
 
 <img src="https://s3.amazonaws.com/nettuts/613_mvc/components.jpg" />
 
+### The history of MVC
+MVC is really old and was first described in 1979 by Trygve Reenskaug, then working on Smalltalk at Xerox PARC. Being over 30 years ago does not mean it's dead, far from it... Today MVC is used in most modern web and GUI frameworks, including:
+
+<ul>
+    <li>Ruby On Rails: A popular Ruby web-framework</li>
+    <li>Django: A popular Python web-framework</li>
+    <li>Apple Cocoa: Apple's framework for developing Mac OS and iOS applications</li>
+    <li>ASP.Net Framework: Microsoft's web-framework for implementing web applications</li>
+    <li>Apache Struts: A popular Java web-framework</li>
+    <li>Desktop Applications (Object Oriented Languages)</li>
+    <li>... And many many more languages and frameworks</li>
+</ul>
+<br />
+
 ## Model
 A model stores data that is retrieved to the controller and displayed in the view. Whenever there is a change to the data it is updated by the controller.
 
